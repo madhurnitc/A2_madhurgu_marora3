@@ -38,6 +38,7 @@
 			return 0;
 		}
 	}
+	
 	 abstract class A {
 		int a1 = 1;
 		int a2 = 2;
