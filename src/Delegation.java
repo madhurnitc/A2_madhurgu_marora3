@@ -32,13 +32,21 @@
 		int get_b2();
 	}
 	interface IC extends IB{
+		int c1 = 100;
+		int c2 = 200;
 		int r();
 		int p(int m);
 		int q(int m);
+		int get_c1();
+		int get_c2();
 	}
 	interface ID extends IB{
+		int d1 = 300;
+		int d2 = 400;
 		int p(int m);
 		int r();
+		int get_d1();
+		int get_d2();
 	}
 	
 	class A2 implements IA{	
@@ -64,19 +72,188 @@
 		
 	}
 	class B2 implements IB{
-		IB this1;
-		public B2(IB b){
-			this1 = b;
+		IA super1;
+		public B2(IB ib){
+			super1 = new A2(ib);
+		}
+		@Override
+		public int get_a1() {
+			// TODO Auto-generated method stub
+			return super1.get_a1();
+		}
+		@Override
+		public int get_a2() {
+			// TODO Auto-generated method stub
+			return super1.get_a2();
+		}
+		@Override
+		public int g() {
+			// TODO Auto-generated method stub
+			return f() + q(200);
+		}
+		@Override
+		public int p(int m) {
+			// TODO Auto-generated method stub
+			return m + IB.b1;
+		}
+		@Override
+		public int q(int m) {
+			// TODO Auto-generated method stub
+			return m + IB.b2;
+		}
+		@Override
+		public int get_b1() {
+			// TODO Auto-generated method stub
+			return IB.b1;
+		}
+		@Override
+		public int get_b2() {
+			// TODO Auto-generated method stub
+			return IB.b2;
+		}
+		@Override
+		public int f() {
+			// TODO Auto-generated method stub
+			return super1.f();
 		}
 	}
 	class C2 implements IC{
+		
+		IB super2;
+		public C2(){
+			super2 = new B2(this);
+		}
 		public int r(){
-			return 0;
+			return f()+ g() + IC.c1;
+		}
+
+		@Override
+		public int g() {
+			// TODO Auto-generated method stub
+			return super2.g();
+		}
+
+		@Override
+		public int get_b1() {
+			// TODO Auto-generated method stub
+			return super2.get_b1();
+		}
+
+		@Override
+		public int get_b2() {
+			// TODO Auto-generated method stub
+			return super2.get_b2();
+		}
+
+		@Override
+		public int f() {
+			// TODO Auto-generated method stub
+			return super2.f();
+		}
+
+		@Override
+		public int get_a1() {
+			// TODO Auto-generated method stub
+			return super2.get_a1();
+		}
+
+		@Override
+		public int get_a2() {
+			// TODO Auto-generated method stub
+			return super2.get_a2();
+		}
+
+		@Override
+		public int p(int m) {
+			// TODO Auto-generated method stub
+			return super2.p(m) + super2.q(m) + IC.c2;
+		}
+
+		@Override
+		public int q(int m) {
+			// TODO Auto-generated method stub
+			return m + get_a2() + get_b2() + get_c2();
+		}
+
+		@Override
+		public int get_c1() {
+			// TODO Auto-generated method stub
+			return IC.c1;
+		}
+
+		@Override
+		public int get_c2() {
+			// TODO Auto-generated method stub
+			return IC.c2;
 		}
 	}
 	class D2 implements ID{
+		IB super2;
+		public D2() {
+			super2 = new B2(this);
+		}
 		public int r(){
-			return 0;
+			return f() + g() + ID.d2;
+		}
+
+		@Override
+		public int g() {
+			// TODO Auto-generated method stub
+			return super2.g();
+		}
+
+		@Override
+		public int q(int m) {
+			// TODO Auto-generated method stub
+			return super2.q(m);
+		}
+
+		@Override
+		public int get_b1() {
+			// TODO Auto-generated method stub
+			return super2.get_b1();
+		}
+
+		@Override
+		public int get_b2() {
+			// TODO Auto-generated method stub
+			return super2.get_b2();
+		}
+
+		@Override
+		public int f() {
+			// TODO Auto-generated method stub
+			return super2.f();
+		}
+
+		@Override
+		public int get_a1() {
+			// TODO Auto-generated method stub
+			return super2.get_a1();
+		}
+
+		@Override
+		public int get_a2() {
+			// TODO Auto-generated method stub
+			return super2.get_a2();
+		}
+
+		@Override
+		public int p(int m) {
+			// TODO Auto-generated method stub
+			return m + get_a1() + get_b1() + ID.d1;
+		}
+
+		@Override
+		public int get_d1() {
+			// TODO Auto-generated method stub
+			return ID.d1;
+		}
+
+		@Override
+		public int get_d2() {
+			// TODO Auto-generated method stub
+			return ID.d2;
 		}
 	}
 	
