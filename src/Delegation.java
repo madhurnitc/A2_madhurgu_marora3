@@ -14,19 +14,60 @@
 	}
 
 	interface IA{
+		int a1=1;
+		int a2=2;
+		int f();
+		int p(int m);
+		int q(int m);
+		int get_a1();
+		int get_a2();
 	}
 	interface IB extends IA{
+		int b1=10;
+		int b2=20;
+		int g();
+		int p(int m);
+		int q(int m);
+		int get_b1();
+		int get_b2();
 	}
 	interface IC extends IB{
+		int r();
+		int p(int m);
+		int q(int m);
 	}
 	interface ID extends IB{
+		int p(int m);
+		int r();
 	}
 	
-	class A2 implements IA{
+	class A2 implements IA{	
+		IA this1;
+		public A2(IA ia){
+			this1 = ia;
+		}
+		public int f() {
+			return get_a1() + p(100) + q(100);
+		}
+		public int p(int m){
+			return this1.p(m);
+		}
+		public int q(int m){
+			return this1.q(m);
+		}
+		public int get_a1(){
+			return IA.a1;
+		}
+		public int get_a2(){
+			return IA.a2;
+		}
 		
 	}
 	class B2 implements IB{
-		
+		IB this1;
+		public B2(IB b){
+			this1 = b;
+		}
 	}
 	class C2 implements IC{
 		public int r(){
