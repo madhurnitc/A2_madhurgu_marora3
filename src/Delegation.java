@@ -64,9 +64,44 @@
 		
 	}
 	class B2 implements IB{
-		IB this1;
-		public B2(IB b){
+		IA this1;
+		public B2(IA b){
 			this1 = b;
+		}
+		@Override
+		public int get_a1() {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+		@Override
+		public int get_a2() {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+		@Override
+		public int g() {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+		@Override
+		public int p(int m) {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+		@Override
+		public int q(int m) {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+		@Override
+		public int get_b1() {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+		@Override
+		public int get_b2() {
+			// TODO Auto-generated method stub
+			return 0;
 		}
 	}
 	class C2 implements IC{
