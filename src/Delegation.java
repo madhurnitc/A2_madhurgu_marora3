@@ -89,7 +89,7 @@
 		@Override
 		public int g() {
 			// TODO Auto-generated method stub
-			return f() + q(200);
+			return f() + super1.q(200);
 		}
 		@Override
 		public int p(int m) {
